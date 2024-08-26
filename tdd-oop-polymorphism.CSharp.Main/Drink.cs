@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Drink
+    public class Drink : IBasket
     {
+        List<Drink> drinks = new List<Drink>();
+
         string name;
         int price;
 
@@ -17,14 +19,19 @@ namespace tdd_oop_polymorphism.CSharp.Main
             this.price = price;
         }
 
-        public int getPrice()
+        public int GetPrice()
         {
             return this.price;
         }
 
-        public string getName()
+        public string GetName()
         {
             return this.name;
+        }
+
+        public void add(string name, int price)
+        {
+            this.drinks.Add(new Drink(name, price));
         }
     }
 }
